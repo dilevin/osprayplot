@@ -23,7 +23,7 @@ f.ospray.setParameter(l1.LightID, f.ospray.OSPRAY_LIGHT, 'direction', [-1 2 -1])
 %normals and texture coordinates
 N = per_vertex_normals(Vs,Fs);
 p.VertexNormals = N;
-p.TextureCoords = [zeros(size(Vs,1),1), (Vs(:,1)-min(Vs(:,1)))/(max(Vs(:,1))-min(Vs(:,1)))];
+p.TextureCoords = [0.5*ones(size(Vs,1),1), (Vs(:,1)-min(Vs(:,1)))/(max(Vs(:,1))-min(Vs(:,1)))+0.5/1024];
 
 %color map
 b = cbrewer('Oranges', 8);

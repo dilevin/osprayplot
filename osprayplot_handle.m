@@ -247,6 +247,7 @@ classdef osprayplot_handle < matlab.mixin.SetGet
                 case 'Denoise'
                     this.Denoise = min(max(0, get(this, src.Name)),1);
                     this.dirty = true;
+                    return
             end
        
             fprintf('Property update not supported\n');

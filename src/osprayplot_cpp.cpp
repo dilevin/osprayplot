@@ -10,7 +10,7 @@ using namespace ospcommon::math;
 
 osprayplot_cpp::osprayplot_cpp() {
 
-    std::cout<<"Constructor \n";
+    //std::cout<<"Constructor \n";
   
     // initialize OSPRay; OSPRay parses (and removes) its commandline parameters,
     // e.g. "--osp:debug"
@@ -460,6 +460,6 @@ void osprayplot_cpp::shutdown() {
 
 osprayplot_cpp::~osprayplot_cpp() {
 
-    std::cout<<"Destructor \n"; 
+    //std::cout<<"Destructor \n"; 
 
 }
