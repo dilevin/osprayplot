@@ -23,4 +23,4 @@ So far this has only been tested on OSX using Ospray intalled via Homebrew.
               -DOpenvkl_DIR=${Openvkl_CMake_Directory}
   ```
     
-  3. make all
+  3. `make all`
