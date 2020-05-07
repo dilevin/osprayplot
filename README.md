@@ -24,3 +24,6 @@ So far this has only been tested on OSX using Ospray intalled via Homebrew.
   ```
     
   3. `make all`
+  4. Add paths in matlab **MATLAB**
+    a. addpath '/Users/dilevin/Documents/Research/Development/osprayplot'
+    b. addpath '/Users/dilevin/Documents/Research/Development/osprayplot/build'
