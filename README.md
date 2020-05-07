@@ -5,7 +5,7 @@ ospray_sphere.m shows an example of setting up the renderer to produce an image.
 
 ![Plane](./images/sunset_plane.jpg)
 
-*Rendered from MATLAB, using Ospray*
+*An aluminum plane at sunset, rendered from MATLAB, using Ospray*
 
 ## Installation
 So far this has only been tested on OSX using Ospray intalled via Homebrew.
