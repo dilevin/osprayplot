@@ -11,7 +11,7 @@ ospray_sphere.m shows an example of setting up the renderer to produce an image.
 So far this has only been tested on OSX using Ospray intalled via Homebrew.
 
 ### OSX
-  1. Install Ospray using Homebrew: 'brew install ospray'
+  1. Install Ospray using Homebrew: `brew install ospray`
   
   2. Use CMake to create build files. While in ${OSPRAYPLOT_DIR}
 
