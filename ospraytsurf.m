@@ -1,7 +1,11 @@
 %plot mesh using OSPRAY
-function ospsurf = ospraytsurf(F,V)
+function ospsurf = ospraytsurf(F,V, fig)
     
-    f = gcf;
+    if nargin < 3
+        f = gcf;
+    else
+        f = fig;
+    end
    
     CameraPosition = [];
     CameraUpVector = [];

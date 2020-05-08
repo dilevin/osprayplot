@@ -57,6 +57,11 @@ classdef osprayplot_handle < matlab.mixin.SetGet
        OSPRAY_MATERIAL = int32(1);
        OSPRAY_LIGHT = int32(2);
        
+       %handle lists
+       Objects = {};
+       Lights = {};
+       Textures = {};
+       
     end
     
     methods
@@ -96,7 +101,10 @@ classdef osprayplot_handle < matlab.mixin.SetGet
         function handle = addObject(this, F,V)
             handle = ospraymeshobj(V,F,[], []); 
             
+            this.Objects{numel(this.Objects)+1} = handle;
+            
             meshColors = [];
+            
             if(size(handle.FaceAlpha,1) == 1)
                 meshColors = [handle.FaceVertexCData repmat(handle.FaceAlpha, size(handle.Vertices,1),1)];
             else
@@ -123,12 +131,16 @@ classdef osprayplot_handle < matlab.mixin.SetGet
         function handle = addLight(this, type)
             handle = ospraylightobj(); 
             
+            this.Lights{numel(this.Lights)+1} = handle;
+            
             handle.LightID = osprayplot_mex('addlight', this.cpp_ptr, type);  
             this.dirty = true;
         end
         
         function handle = addTexture(this, texture)
             handle = ospraytextureobj(); 
+            
+            this.Textures{numel(this.Textures)+1} = handle;
             
             handle.TextureID = osprayplot_mex('addtex', this.cpp_ptr, texture);  
             this.dirty = true;
