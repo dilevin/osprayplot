@@ -6,7 +6,7 @@ f = figure; p = ospraytsurf(Fs,Vs);
 hold on; p1 = ospraytsurf([1 2 3; 1 3 4], [-100 -100 -1; 100 -100 -1; 100 100 -1; -100 100 -1]);
 
 p.FaceColor = [1 1 1];
-p1.FaceColor = [1 1 1];
+p1.FaceColor = [1.2 1.2 1.2];
 
 %turn on denoiser
 f.ospray.Denoise = 1;
