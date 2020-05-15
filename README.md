@@ -22,6 +22,13 @@ So far this has only been tested on OSX using Ospray intalled via Homebrew.
               -DEmbree_DIR=${Embree_CMake_Directory} -DOspcommon_DIR=${Ospcommon_CMake_Directory}...
               -DOpenvkl_DIR=${Openvkl_CMake_Directory}
   ```
+  **NOTE:** If on OSX, when installed with *Homebrew*, Ospray, Embree, OspCommon and OpenVKL will be located in the       `/usr/local/opt/ospray/lib/cmake` directory. Your command line will look like this: 
+  ```
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DOspray_DIR=/usr/local/opt/ospray/lib/cmake/ospray-2.1.0 ... 
+              -DEmbree_DIR=/usr/local/opt/embree/lib/cmake/embree-3.9.0 ...
+              -DOspcommon_DIR=/usr/local/opt/ospray/lib/cmake/ospcommon-1.3.0 ...
+              -DOpenvkl_DIR=/usr/local/opt/ospray/lib/cmake/openvkl-0.9.0
+  ```
     
   3. `make all`
   4. Add paths in matlab **MATLAB**:
