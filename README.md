@@ -10,6 +10,8 @@ ospray_sphere.m shows an example of setting up the renderer to produce an image.
 ## Installation
 So far this has only been tested on OSX using Ospray intalled via Homebrew.
 
+**WARNING:** Requires CMake version **3.17** or higher.
+
 ### OSX
   1. Install Ospray using Homebrew: `brew install ospray`
   
