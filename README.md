@@ -18,9 +18,7 @@ So far this has only been tested on OSX using Ospray intalled via Homebrew.
   ```
      mkdir ./build
      cd ./build
-     cmake .. -DCMAKE_BUILD_TYPE=Release -DOspray_DIR=${Ospray_CMake_Directory} ...
-              -DEmbree_DIR=${Embree_CMake_Directory} -DOspcommon_DIR=${Ospcommon_CMake_Directory}...
-              -DOpenvkl_DIR=${Openvkl_CMake_Directory}
+     cmake .. -DCMAKE_BUILD_TYPE=Release -DOspray_DIR=${Ospray_CMake_Directory} -DEmbree_DIR=${Embree_CMake_Directory} -DOspcommon_DIR=${Ospcommon_CMake_Directory} -DOpenvkl_DIR=${Openvkl_CMake_Directory}
   ```
   **NOTE:** If on OSX, when installed with *Homebrew*, Ospray, Embree, OspCommon and OpenVKL will be located in the       `/usr/local/opt/ospray/lib/cmake` directory. Your command line will look something like this: 
   ```
