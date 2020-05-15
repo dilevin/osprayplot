@@ -5,9 +5,11 @@ project (ospray_plot)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_PREFIX_PATH ${Ospray_DIR} ${Embree_DIR} ${Ospcommon_DIR} ${Openvkl_DIR})
 
-find_package(ospray 2.1 REQUIRED)
 
 find_package(Matlab REQUIRED)
+find_package(embree 3.8 REQUIRED)
+find_package(ospray 2.1 REQUIRED)
+
 include_directories(${PROJECT_SOURCE_DIR}/include 
                     ${Matlab_INCLUDE_DIRS})
 
