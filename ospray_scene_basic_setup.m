@@ -51,7 +51,7 @@ function f_ospray = ospray_scene_basic_setup(f)
     l0 = ospraylight('sunSky');
     l1 = ospraylight('ambient');
     
-    f_ospray.ospray.setParameter(l1.LightID, f_ospray.ospray.OSPRAY_LIGHT, 'intensity', 0.8); 
+    f_ospray.ospray.setParameter(l1.LightID, f_ospray.ospray.OSPRAY_LIGHT, 'intensity', 1.0); 
     f_ospray.ospray.setParameter(l0.LightID, f_ospray.ospray.OSPRAY_LIGHT, 'intensity', 0.8); 
     f_ospray.ospray.setParameter(l0.LightID, f_ospray.ospray.OSPRAY_LIGHT, 'up', v); 
     f_ospray.ospray.setParameter(l0.LightID, f_ospray.ospray.OSPRAY_LIGHT, 'direction', -v + u - w); 

@@ -30,8 +30,9 @@ function ospsurf = ospraytsurf(F,V, fig)
         pos = f.Position;
         clf(f);
         hold on;
-        imshow(zeros(pos(4), pos(3)));
-        hold off;
+        imshow(zeros(round(pos(4)), round(pos(3))));
+        hold on;
+        %hold off;
         
         InSet = get(gca, 'TightInset');
         set(gca, 'Position', [InSet(1:2), 1-InSet(1)-InSet(3), 1-InSet(2)-InSet(4)]);
@@ -55,10 +56,11 @@ function ospsurf = ospraytsurf(F,V, fig)
         clf(f);
         hold on;
         imshow(zeros(pos(4), pos(3)));
-        hold off;
+        
         
         InSet = get(gca, 'TightInset');
         set(gca, 'Position', [InSet(1:2), 1-InSet(1)-InSet(3), 1-InSet(2)-InSet(4)]);
+        hold on;
             
     end
    
