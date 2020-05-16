@@ -13,7 +13,7 @@ function f_ospray = ospray_scene_basic_setup(f)
     
     hold on;
     
-    for i=1:numel(a.Children)
+    for i=numel(a.Children):-1:1
         
         if contains(class(a.Children(i)), 'Patch')
             
@@ -46,6 +46,7 @@ function f_ospray = ospray_scene_basic_setup(f)
     f_ospray.ospray.Denoise = 1;
     f_ospray.ospray.SamplesPerPixel = 4;
     f_ospray.ospray.setCamera(a.CameraPosition, -w, v, 0.1, a.CameraViewAngle);
+    f_ospray.Position = f.Position;
     
     %use my basic scene setup of sunSky light and ambient light 
     l0 = ospraylight('sunSky');
@@ -56,6 +57,6 @@ function f_ospray = ospray_scene_basic_setup(f)
     f_ospray.ospray.setParameter(l0.LightID, f_ospray.ospray.OSPRAY_LIGHT, 'up', v); 
     f_ospray.ospray.setParameter(l0.LightID, f_ospray.ospray.OSPRAY_LIGHT, 'direction', -v + u - w); 
 
-    drawnowOspray(f_ospray);
+    %drawnowOspray(f_ospray);
     
 end

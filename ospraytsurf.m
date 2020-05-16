@@ -12,6 +12,8 @@ function ospsurf = ospraytsurf(F,V, fig)
     CameraTarget = [];
     CameraFOV = [];
     
+    holdon = false;
+    
     %ospray handle automatically deleted on close
     if(strcmp(f.NextPlot,'add'))
         if(~isprop(f, 'ospray'))
@@ -27,15 +29,20 @@ function ospsurf = ospraytsurf(F,V, fig)
         
         end
         
+        holdon=true;
+        
         pos = f.Position;
         clf(f);
         hold on;
         imshow(zeros(round(pos(4)), round(pos(3))));
         hold on;
+        
+
         %hold off;
         
         InSet = get(gca, 'TightInset');
         set(gca, 'Position', [InSet(1:2), 1-InSet(1)-InSet(3), 1-InSet(2)-InSet(4)]);
+        hold on;
         
     else
         %create figure
@@ -57,7 +64,7 @@ function ospsurf = ospraytsurf(F,V, fig)
         hold on;
         imshow(zeros(pos(4), pos(3)));
         
-        
+        f.Position = pos;
         InSet = get(gca, 'TightInset');
         set(gca, 'Position', [InSet(1:2), 1-InSet(1)-InSet(3), 1-InSet(2)-InSet(4)]);
         hold on;
@@ -73,7 +80,13 @@ function ospsurf = ospraytsurf(F,V, fig)
         f.Color = [1,1,1];
     end
     
-    drawnowOspray(f);
+    if numel(f.ospray.Objects) == 1
+        drawnowOspray(f);
+    end
+    
+    if holdon
+        hold on;
+    end
 
     function sizeChangedFcn(hObject, eventdata, handles)
         f.ospray.dirty = true;
