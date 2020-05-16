@@ -45,7 +45,7 @@ function f_ospray = ospray_scene_basic_setup(f)
     
     f_ospray.ospray.Denoise = 1;
     f_ospray.ospray.SamplesPerPixel = 4;
-    f_ospray.ospray.setCamera(a.CameraPosition, -w, v, 0.1, a.CameraViewAngle);
+    f_ospray.ospray.setCamera(a.CameraPosition, -w, v, 0, a.CameraViewAngle);
     f_ospray.Position = f.Position;
     
     %use my basic scene setup of sunSky light and ambient light 

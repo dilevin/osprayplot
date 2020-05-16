@@ -91,7 +91,7 @@ classdef osprayplot_handle < matlab.mixin.SetGet
                 if abs(this.RenderFraction - 1) < sqrt(eps)
                     this.current_frame = osprayplot_mex('render', this.cpp_ptr, size_I.*this.RenderFraction, int32(this.NumAverages), int32(this.Denoise));
                 else
-                    this.current_frame = imresize(osprayplot_mex('render', this.cpp_ptr, size_I.*this.RenderFraction, int32(this.NumAverages), int32(this.Denoise)), 1/this.RenderFraction, 'Antialiasing', true);
+                    this.current_frame = imresize(osprayplot_mex('render', this.cpp_ptr, size_I.*this.RenderFraction, int32(this.NumAverages), int32(this.Denoise)), 1/this.RenderFraction, 'method', 'bilinear', 'Antialiasing', true);
                 end
                 this.dirty = false;
             end
