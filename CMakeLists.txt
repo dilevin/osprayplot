@@ -11,7 +11,11 @@ find_package(embree 3.8 REQUIRED)
 find_package(ospray 2.1 REQUIRED)
 
 include_directories(${PROJECT_SOURCE_DIR}/include 
-                    ${Matlab_INCLUDE_DIRS})
+                    ${Matlab_INCLUDE_DIRS}
+                    ${OSPRAY_INCLUDE_DIRS}
+                    ${Ospcommon_INCLUDE_DIRS})
+
+message(WARNING ${OSPRAY_INCLUDE_DIRS})
 
 matlab_add_mex(NAME osprayplot_mex
 			SRC ${PROJECT_SOURCE_DIR}/src/osprayplot_mex.cpp ${PROJECT_SOURCE_DIR}/src/osprayplot_cpp.cpp

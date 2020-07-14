@@ -1,7 +1,9 @@
 #include <iostream>
 #include <vector>
 
+#define OSPRAY_CPP_RKCOMMON_TYPES
 #include <ospray/ospray_cpp.h>
+#include <ospray/ospray_cpp/Traits.h>
 
 class osprayplot_cpp 
 {
@@ -73,18 +75,18 @@ protected:
     std::vector<ospray::cpp::Instance> m_instances; //one group per instance, one object per group
 
     //raw data for conversions
-    std::vector<std::vector<ospcommon::math::vec3f> > m_positions;
-    std::vector<std::vector<ospcommon::math::vec4f> > m_colors;
-    std::vector<std::vector<ospcommon::math::vec3ui> > m_indices;
-    std::vector<std::vector<ospcommon::math::vec3f> > m_normals;
-    std::vector<std::vector<ospcommon::math::vec2f> > m_texcoords;
+    std::vector<std::vector<rkcommon::math::vec3f> > m_positions;
+    std::vector<std::vector<rkcommon::math::vec4f> > m_colors;
+    std::vector<std::vector<rkcommon::math::vec3ui> > m_indices;
+    std::vector<std::vector<rkcommon::math::vec3f> > m_normals;
+    std::vector<std::vector<rkcommon::math::vec2f> > m_texcoords;
 
     //List of Lights
     std::vector<ospray::cpp::Light> m_lights;
 
     //List of Textures
     std::vector<ospray::cpp::Texture> m_textures;
-    std::vector<std::vector<ospcommon::math::vec4f>> m_texture_data;
+    std::vector<std::vector<rkcommon::math::vec4f>> m_texture_data;
 
     std::string m_renderer_mode;
 

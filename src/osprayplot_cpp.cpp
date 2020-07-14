@@ -5,8 +5,7 @@
 
 #include <iostream>
 
-using namespace ospcommon::math;
-
+using namespace rkcommon::math; 
 
 osprayplot_cpp::osprayplot_cpp() {
 
@@ -57,7 +56,7 @@ void osprayplot_cpp::set_ospray_parameter(int obj_id, int object_type, char *par
 
 void osprayplot_cpp::set_ospray_parameter3(int obj_id, int object_type, char *param_name, int *value) {
 
-  ospray::cpp::vec3ui tmp;
+  vec3ui tmp;
   tmp.x = value[0];
   tmp.y = value[1];
   tmp.z = value[2];
@@ -102,7 +101,7 @@ void osprayplot_cpp::set_ospray_parameter(int obj_id, int object_type, char *par
 
 void osprayplot_cpp::set_ospray_parameter3(int obj_id, int object_type, char *param_name,  double *value) {
   
-  ospray::cpp::vec3f tmp;
+  vec3f tmp;
   tmp.x = value[0];
   tmp.y = value[1];
   tmp.z = value[2];
@@ -276,7 +275,7 @@ int osprayplot_cpp::add_texture_2d(int height, int width, int channels, double *
   tex_size.y = height;
   
   //std::cout<<"SIZE: "<<width<<" "<<height<<"\n";
-  m_textures.back().setParam("data", ospray::cpp::Data(tex_size, (vec4f *)(m_texture_data.back().data())));
+  m_textures.back().setParam("data", ospray::cpp::CopiedData((vec4f *)(m_texture_data.back().data()), tex_size));
   //dev = ospGetCurrentDevice();
   //std::cout<<ospDeviceGetLastErrorMsg(dev)<<"\n";
   
@@ -351,7 +350,7 @@ void osprayplot_cpp::update_vertex_params(int objId, char *property, double *dat
 
     }
 
-    m_geometries[objId].setParam("vertex.texcoord", ospray::cpp::Data(m_texcoords[objId]));
+    m_geometries[objId].setParam("vertex.texcoord", ospray::cpp::CopiedData(m_texcoords[objId]));
     
   } else if(!strcmp(property,"index")) {
 
@@ -417,7 +416,7 @@ void osprayplot_cpp::render(int height, int width, char *image_buffer, int num_a
 
       auto buffers = OSP_FB_COLOR | OSP_FB_DEPTH | OSP_FB_ACCUM | OSP_FB_ALBEDO | OSP_FB_NORMAL;
   
-      ospray::cpp::FrameBuffer framebuffer = ospray::cpp::FrameBuffer(imgSize, OSP_FB_RGBA32F, buffers);
+      ospray::cpp::FrameBuffer framebuffer = ospray::cpp::FrameBuffer(imgSize.x, imgSize.y, OSP_FB_RGBA32F, buffers);
 
       if(m_denoiser_available && denoise) {
         //turn on DNN denoiser
