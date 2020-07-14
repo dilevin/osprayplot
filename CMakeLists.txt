@@ -19,7 +19,7 @@ message(WARNING ${OSPRAY_INCLUDE_DIRS})
 
 matlab_add_mex(NAME osprayplot_mex
 			SRC ${PROJECT_SOURCE_DIR}/src/osprayplot_mex.cpp ${PROJECT_SOURCE_DIR}/src/osprayplot_cpp.cpp
-			LINK_TO ${Matlab_MX_LIBRARY} ${Matlab_MEX_LIBRARY} ${Matlab_OMP_LIB} ospray::ospray
+			LINK_TO ${Matlab_MX_LIBRARY} ${Matlab_MEX_LIBRARY} ${Matlab_OMP_LIB} ospray::ospray ospray::ospray_module_ispc
             OUTPUT_NAME osprayplot_mex)
             
 

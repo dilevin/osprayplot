@@ -1,5 +1,5 @@
 %load data
-[Vs, Fs] = readOBJ('/Users/dilevin/Downloads/sphere-stripe.obj');
+[Vs, Fs] = readOBJ('sphere-stripe.obj');
 
 %start ospray and add geometry
 f = figure; p = ospraytsurf(Fs,Vs);

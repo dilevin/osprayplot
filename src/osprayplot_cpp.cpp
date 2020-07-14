@@ -17,8 +17,8 @@ osprayplot_cpp::osprayplot_cpp() {
     
     //initialize ospray renderer (this is nothing like what the documentation says)
     {
+
       ospLoadModule("ispc");
-      
       m_denoiser_available = true;
 
       if(ospLoadModule("denoiser") != OSP_NO_ERROR) {
@@ -29,9 +29,9 @@ osprayplot_cpp::osprayplot_cpp() {
       OSPDevice device = ospNewDevice("cpu");
       ospDeviceCommit(device);
       ospSetCurrentDevice(device);
-      //ospDeviceRelease(device);
-
+      
       m_renderer_mode = "pathtracer";
+
     }
   
 }
