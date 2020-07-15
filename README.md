@@ -13,7 +13,10 @@ So far this has only been tested on OSX using Ospray intalled via Homebrew.
 **WARNING:** Requires CMake version **3.17** or higher.
 
 ### OSX
-  1. Install Ospray using Homebrew: `brew install ospray`
+
+## Option 1 (Easy): No Intel Deep Learning Denoiser
+
+  1. Install Ospray using Homebrew: `brew install ospray'
   
   2. Use CMake to create build files. While in ${OSPRAYPLOT_DIR}
 
@@ -28,6 +31,12 @@ So far this has only been tested on OSX using Ospray intalled via Homebrew.
   ```
     
   3. `make all`
+
+## Option 2 (Harder): With Intel Deep Learning Denoiser 
+
+
+## Finalize MATLAB Setup
+
   4. Add paths in matlab **MATLAB**:
   ```
     a. addpath '${OSPRAYPLOT_DIR}'
