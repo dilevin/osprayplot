@@ -34,7 +34,24 @@ So far this has only been tested on OSX using Ospray intalled via Homebrew.
 
 ## Option 2 (Harder): With Intel Deep Learning Denoiser 
 
+  1. Install Git Large File Storage: `brew install git-lfs'
+  
+  2. Install Intel Implicit SPMD Program Compiler: `brew install ispc'
+  
+  3. Install Intel Embree: `brew install embree'
+  
+  4. Install Intel TBB: `brew install tbb'
 
+  5. Install GLFW: `brew install glfw'
+  
+  6. Install rkcommon
+    a. `cd ${OSPRAYPLOT_DIR}/extern/rkcommon'
+    b. `mkdir ./build'
+    c. `cd build'
+    d. `cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_NAME_DIR=/usr/local/lib -DCMAKE_INSTALL_RPATH=/usr/local/lib' 
+    
+
+  
 ## Finalize MATLAB Setup
 
   4. Add paths in matlab **MATLAB**:
