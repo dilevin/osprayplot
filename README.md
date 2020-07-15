@@ -54,9 +54,49 @@ So far this has only been tested on OSX using Ospray intalled via Homebrew.
     make all
     sudo make install
    ```
-    
-
   
+  7. Install OpenVKL
+  
+  ```
+    cd ${OSPRAYPLOT_DIR}/extern/openvkl
+    mkdir ./build
+    cd build
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_NAME_DIR=/usr/local/lib -DCMAKE_INSTALL_RPATH=/usr/local/lib
+    make all
+    sudo make install
+  ```
+  
+  8. Install Open Image Denoiser 
+  
+  ```
+    cd ${OSPRAYPLOT_DIR}/extern/oidn
+    mkdir ./build
+    cd build
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_NAME_DIR=/usr/local/lib -DCMAKE_INSTALL_RPATH=/usr/local/lib
+    make all
+    sudo make install
+  ```
+  
+  9. Install Ospray
+  
+  ```
+    cd ${OSPRAYPLOT_DIR}/extern/ospray
+    mkdir ./build
+    cd build
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_NAME_DIR=/usr/local/lib -DCMAKE_INSTALL_RPATH=/usr/local/lib -DOSPRAY_ENABLE_APPS=OFF -DOSPRAY_ENABLE_TESTING=OFF -DOSPRAY_ENABLE_TUTORIALS=OFF -DOSPRAY_MODULE_DENOISER=ON
+    make all
+    sudo make install
+  ```
+
+  10. Use CMake to create build files. While in ${OSPRAYPLOT_DIR}
+
+  ```
+    cd ${OSPRAYPLOT_DIR}   
+    mkdir ./build
+    cd ./build
+    cmake .. -DCMAKE_BUILD_TYPE=Release
+    make all
+  ```
 ## Finalize MATLAB Setup
 
   4. Add paths in matlab **MATLAB**:
