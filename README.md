@@ -1,4 +1,11 @@
 # osprayplot
+
+Clone this project using
+
+```
+git clone --recursive https://github.com/dilevin/osprayplot.git
+```
+
 This project is a MATLAB Interface to [Intel's Ospray Visualization Renderer](https://www.ospray.org). 
 
 ospray_sphere.m shows an example of setting up the renderer to produce an image.
@@ -13,7 +20,10 @@ So far this has only been tested on OSX using Ospray intalled via Homebrew.
 **WARNING:** Requires CMake version **3.17** or higher.
 
 ### OSX
-  1. Install Ospray using Homebrew: `brew install ospray`
+
+## Option 1 (Easy): No Intel Deep Learning Denoiser
+
+  1. Install Ospray using Homebrew: `brew install ospray'
   
   2. Use CMake to create build files. While in ${OSPRAYPLOT_DIR}
 
@@ -28,8 +38,76 @@ So far this has only been tested on OSX using Ospray intalled via Homebrew.
   ```
     
   3. `make all`
+
+## Option 2 (Harder): With Intel Deep Learning Denoiser 
+
+  1. Install Git Large File Storage: `brew install git-lfs'
+  
+  2. Install Intel Implicit SPMD Program Compiler: `brew install ispc'
+  
+  3. Install Intel Embree: `brew install embree'
+  
+  4. Install Intel TBB: `brew install tbb'
+
+  5. Install GLFW: `brew install glfw'
+  
+  6. Install rkcommon
+  
+   ```
+    cd ${OSPRAYPLOT_DIR}/extern/rkcommon
+    mkdir ./build
+    cd build
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_NAME_DIR=/usr/local/lib -DCMAKE_INSTALL_RPATH=/usr/local/lib
+    make all
+    sudo make install
+   ```
+  
+  7. Install OpenVKL
+  
+  ```
+    cd ${OSPRAYPLOT_DIR}/extern/openvkl
+    mkdir ./build
+    cd build
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_NAME_DIR=/usr/local/lib -DCMAKE_INSTALL_RPATH=/usr/local/lib
+    make all
+    sudo make install
+  ```
+  
+  8. Install Open Image Denoiser 
+  
+  ```
+    cd ${OSPRAYPLOT_DIR}/extern/oidn
+    mkdir ./build
+    cd build
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_NAME_DIR=/usr/local/lib -DCMAKE_INSTALL_RPATH=/usr/local/lib
+    make all
+    sudo make install
+  ```
+  
+  9. Install Ospray
+  
+  ```
+    cd ${OSPRAYPLOT_DIR}/extern/ospray
+    mkdir ./build
+    cd build
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_NAME_DIR=/usr/local/lib -DCMAKE_INSTALL_RPATH=/usr/local/lib -DOSPRAY_ENABLE_APPS=OFF -DOSPRAY_ENABLE_TESTING=OFF -DOSPRAY_ENABLE_TUTORIALS=OFF -DOSPRAY_MODULE_DENOISER=ON
+    make all
+    sudo make install
+  ```
+
+  10. Use CMake to create build files. While in ${OSPRAYPLOT_DIR}
+
+  ```
+    cd ${OSPRAYPLOT_DIR}   
+    mkdir ./build
+    cd ./build
+    cmake .. -DCMAKE_BUILD_TYPE=Release
+    make all
+  ```
+## Finalize MATLAB Setup
+
   4. Add paths in matlab **MATLAB**:
   ```
-    a. addpath '${OSPRAYPLOT_DIR}'
-    b. addpath '${OSPRAYPLOT_DIR}/build'
+    addpath '${OSPRAYPLOT_DIR}'
+    addpath '${OSPRAYPLOT_DIR}/build'
   ```
