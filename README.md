@@ -45,10 +45,18 @@ So far this has only been tested on OSX using Ospray intalled via Homebrew.
   5. Install GLFW: `brew install glfw'
   
   6. Install rkcommon
+  
     a. `cd ${OSPRAYPLOT_DIR}/extern/rkcommon'
+    
     b. `mkdir ./build'
+    
     c. `cd build'
+    
     d. `cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_NAME_DIR=/usr/local/lib -DCMAKE_INSTALL_RPATH=/usr/local/lib' 
+    
+    e. `make all`
+    
+    f. `sudo make install`
     
 
   
