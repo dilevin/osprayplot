@@ -1,1 +1,13 @@
 
+[submodule "extern/rkcommon"]
+	path = extern/rkcommon
+	url = https://github.com/ospray/rkcommon.git
+[submodule "extern/openvkl"]
+	path = extern/openvkl
+	url = https://github.com/OpenVKL/openvkl
+[submodule "extern/oidn"]
+	path = extern/oidn
+	url = https://github.com/OpenImageDenoise/oidn.git
+[submodule "extern/ospray"]
+	path = extern/ospray
+	url = https://github.com/ospray/ospray.git
