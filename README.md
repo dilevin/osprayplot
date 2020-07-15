@@ -47,10 +47,15 @@ So far this has only been tested on OSX using Ospray intalled via Homebrew.
   6. Install rkcommon
   
    `cd ${OSPRAYPLOT_DIR}/extern/rkcommon
-    mkdir ./build'
-    cd build'
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_NAME_DIR=/usr/local/lib -DCMAKE_INSTALL_RPATH=/usr/local/lib' 
+   
+    mkdir ./build
+    
+    cd build
+    
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_NAME_DIR=/usr/local/lib -DCMAKE_INSTALL_RPATH=/usr/local/lib
+    
     make all
+    
     sudo make install`
     
 
