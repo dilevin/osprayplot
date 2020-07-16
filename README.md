@@ -104,6 +104,13 @@ So far this has only been tested on OSX using Ospray intalled via Homebrew.
     cmake .. -DCMAKE_BUILD_TYPE=Release
     make all
   ```
+  
+### Linux
+  To do
+  
+### Windows
+  To do
+  
 ## Finalize MATLAB Setup
 
   4. Add paths in matlab **MATLAB**:
