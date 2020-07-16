@@ -91,7 +91,13 @@ function ospsurf = ospraytsurf(F,V, fig)
     function sizeChangedFcn(hObject, eventdata, handles)
         f.ospray.dirty = true;
         f.ospray.render([f.Position(4) f.Position(3)]);
-        f.CurrentAxes.Children.CData = f.ospray.current_frame;
+        
+        for ii = 1:numel(f.CurrentAxes.Children)
+            if ~isempty(find(contains(class(f.CurrentAxes.Children(ii)), 'Image')))
+                f.CurrentAxes.Children(ii).CData = f.ospray.current_frame;
+            end
+        end
+                
         drawnowOspray(f);
     end
 
